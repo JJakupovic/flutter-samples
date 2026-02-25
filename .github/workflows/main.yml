@@ -5,9 +5,9 @@ permissions: read-all
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, test1 ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, test1 ]
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # Every day at midnight
@@ -20,7 +20,7 @@ jobs:
   flutter-tests:
     name: Test Flutter ${{ matrix.flutter_version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    if: github.repository == 'flutter/samples'
+    if: github.repository == 'JJakupovic/flutter-samples'
     strategy:
       fail-fast: false
       matrix:
